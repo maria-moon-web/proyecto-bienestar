@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienestar hacia uno mismo</title>
+    <link rel="stylesheet" href="/style/style2.css">
+  
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <!-- Reemplazar con tu imagen -->
+            <img src="/img/Logo.png" alt="Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#footer">Sobre Nosotros</a></li>
+                <!-- Enlace para el Login, que debe redirigir a la sección del formulario -->
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-container">
+        <!-- Formulario de registro -->
+        <form id="loginForm">
+            <h1>Inicia sesion</h1>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+    
+
+    <section id="footer"><footer class="footer">
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Contacto</h3>
+                Teléfono: 8132619143
+                Email: delzocorromerry@gmail.com
+            </div>
+            <div class="social-media">
+                <h3>Síguenos</h3>
+                <a href="#" >Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="useful-links">
+                <h3>Enlaces útiles</h3>
+                <a href="#">Inicio</a>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Bienestar. Todos los derechos reservados.
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a>
+        </div>
+    </footer>
+
+    
+    </section>
+   
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const loginForm = document.querySelector('#loginForm')
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            const email = e.target.email.value
+            const password = e.target.password.value
+            try {
+                const { data } = await axios.post('/api/v1/users/login', {
+                    email, password
+                })
+                localStorage.setItem('token', data.msg.token)
+
+                if (data.msg.role_id === 1) {
+                    window.location.href = '/admin'
+                    return
+                }
+
+                window.location.href = '/profile'
+            } catch (error) {
+                console.log(error)
+            }
+        })
+    </script>
+    <script src="/scripts/java.js"></script>
+
+</body>
+</html>
+
+
+

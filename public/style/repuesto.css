@@ -1,0 +1,43 @@
+body{
+    background-image: url(../../../../../Downloads/contenido.png);
+    
+    text-align: center;
+}
+h1{
+    color: rgb(95, 160, 124);
+  font-size:xx-large;
+
+    line-height: 150px; /* Ajusta según la altura de tu contenedor */
+       /* Añadir sombra al texto */
+  text-shadow: 2px 2px 5px rgb(56, 54, 54); /* Desplazamiento X, Y, difusa, color */
+      /* Otros estilos opcionales */
+      font: size 20px;
+}
+button{
+    color: rgb(26, 27, 27);
+    font-size: large;
+        padding: 10px 20px;           /* Espaciado interno */
+        border: none;                 /* Elimina el borde por defecto */
+        border-radius: 12px;          /* Bordes redondeados */
+        font-size: 16px;              /* Tamaño de fuente */
+        cursor: pointer;             /* Aparece el cursor de mano */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  /* Sombra sutil */
+        transition: all 0.3s ease;    /* Transición suave al pasar el ratón */
+      }
+      
+      button:hover {
+        background-color: #7db8a9;    /* Cambio de color de fondo al pasar el ratón */
+        transform: translateY(-2px);  /* Efecto de elevar el botón */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);  /* Aumenta la sombra */
+      }
+      
+
+table {
+    margin: 0 auto;    /* Centra la tabla horizontalmente */
+    width: 50%;        /* Define un ancho para la tabla (opcional) */
+  }
+  
+
+p{
+    text-align: center;
+}

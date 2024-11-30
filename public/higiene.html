@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higiene y Salud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4; /* Color de fondo */
+        }
+
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra los elementos en el eje horizontal */
+            padding: 20px;
+        }
+
+        section {
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+            margin: 10px;
+            padding: 15px;
+            width: 80%; /* Ancho del cuadro */
+            max-width: 600px; /* Ancho máximo */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Color de fondo al pasar el mouse */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #themeToggle {
+            margin: 20px;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .carousel img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .dark-theme {
+            background-color: #333;
+            color: white;
+        }
+
+        .dark-theme section {
+            background: #444;
+            border: 1px solid #555;
+        }
+
+        .dark-theme footer {
+            background: #222;
+        }
+
+        .faq {
+            margin-top: 20px;
+        }
+
+        .faq-item {
+            cursor: pointer;
+            margin: 5px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 5px;
+            padding: 10px;
+            border-left: 4px solid #4CAF50;
+            background-color: #f9f9f9;
+        }
+    </style>
+    <script>
+        let clickCount = 0;
+
+        function mostrarConsejos() {
+            const consejosLista = document.getElementById('consejos-lista');
+            if (consejosLista.style.display === "none") {
+                consejosLista.style.display = "block";
+            } else {
+                consejosLista.style.display = "none";
+            }
+            clickCount++;
+            document.getElementById('click-counter').innerText = `Número de clics: ${clickCount}`;
+        }
+
+        function alertarBeneficios() {
+            alert("La higiene previene enfermedades y mejora la salud mental.");
+        }
+
+        function contarVisitas() {
+            let visitas = localStorage.getItem('visitas') || 0;
+            visitas++;
+            localStorage.setItem('visitas', visitas);
+            console.log(`Número de visitas: ${visitas}`);
+        }
+
+        function cambiarTema() {
+            const body = document.body;
+            body.classList.toggle('dark-theme');
+        }
+
+        function toggleFAQ(answerId) {
+            const answer = document.getElementById(answerId);
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+
+        window.onload = contarVisitas;
+    </script>
+</head>
+<body>
+    <header>
+        <h1>La Importancia de la Higiene en la Salud</h1>
+        <button id="themeToggle" onclick="cambiarTema()">Cambiar Tema</button>
+    </header>
+    <main>
+        <section id="introduccion">
+            <h2>Introducción</h2>
+            <p>La higiene es fundamental para mantener una buena salud y prevenir enfermedades. Se refiere a las prácticas que ayudan a mantener la salud y la limpieza en el entorno personal y comunitario.</p>
+        </section>
+        <section id="beneficios">
+            <h2>Beneficios de la Higiene</h2>
+            <ul>
+                <li>Prevención de enfermedades infecciosas.</li>
+                <li>Mejora de la salud mental y emocional.</li>
+                <li>Aumento de la autoestima y bienestar general.</li>
+            </ul>
+            <button onclick="alertarBeneficios()">¿Por qué es importante?</button>
+        </section>
+        <section id="practicas">
+            <h2>Prácticas de Higiene Personal</h2>
+            <p>Es importante seguir prácticas de higiene adecuadas, como:</p>
+            <ul>
+                <li>Lavarse las manos regularmente con agua y jabón.</li>
+                <li>Ducharse diariamente.</li>
+                <li>Usar desodorante y mantener una buena higiene bucal.</li>
+                <li>Mantener las uñas cortas y limpias.</li>
+            </ul>
+        </section>
+        <section id="higiene-hogar">
+            <h2>Higiene en el Hogar</h2>
+            <p>Mantener un hogar limpio es crucial para la salud. Algunas prácticas incluyen:</p>
+            <ul>
+                <li>Limpiar superficies frecuentemente.</li>
+                <li>Desinfectar áreas de alto contacto, como pomos de puertas y grifos.</li>
+                <li>Eliminar la basura regularmente y mantener la cocina limpia.</li>
+            </ul>
+        </section>
+        <section id="datos-interesantes">
+            <h2>Datos Interesantes sobre la Higiene</h2>
+            <ul>
+                <li>El lavado de manos puede reducir el riesgo de infecciones en un 30%.</li>
+                <li>La higiene dental adecuada puede prevenir enfermedades cardíacas.</li>
+                <li>La limpieza regular del hogar puede reducir la exposición a alérgenos y contaminantes.</li>
+            </ul>
+        </section>
+        <section id="consejos">
+            <h2>Consejos de Higiene</h2>
+            <button onclick="mostrarConsejos()">Mostrar Consejos</button>
+            <div id="consejos-lista" class="hidden">
+                <ul>
+                    <li>Lávate las manos antes de comer.</li>
+                    <li>Usa desinfectante de manos cuando no haya agua y jabón disponibles.</li>
+                    <li>Mantén tus uñas cortas y limpias.</li>
+                    <li>Evita tocarte la cara con las manos sucias.</li>
+                    <li>Utiliza pañuelos desechables al estornudar o toser.</li>
+                </ul>
+            </div>
+            <p id="click-counter">Número de clics: 0</p>
+        </section>
+        <section id="faq" class="faq">
+            <h2>Preguntas Frecuentes</h2>
+            <div class="faq-item" onclick="toggleFAQ('faq1-answer')">
+                <strong>¿Con qué frecuencia debo lavarme las manos?</strong>
+                <div id="faq1-answer" class="faq-answer">Se recomienda lavarse las manos antes de comer, después de ir al baño y después de tocar superficies sucias.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFAQ('faq2-answer')">
+                <strong>¿Qué productos son mejores para desinfectar?</strong>
+                <div id="faq2-answer" class="faq-answer">Los desinfectantes a base de alcohol son efectivos, así como las soluciones de cloro diluido.</div>
+            </div>
+        </section>
+        <section id="formulario-contacto">
+            <h2>Formulario de Contacto</h2>
+            <form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <section id="carousel">
+            <h2>Consejos de Higiene en Imágenes</h2>
+            <div class="carousel">
+                <img src="imagen1.jpg" alt="Consejo de Higiene 1">
+                <img src="imagen2.jpg" alt="Consejo de Higiene 2">
+                <img src="imagen3.jpg" alt="Consejo de Higiene 3">
+            </div>
+        </section>
+        <section id="conclusion">
+            <h2>Conclusión</h2>
+            <p>La higiene es clave para una vida saludable. Implementar buenos hábitos de higiene puede marcar la diferencia en la prevención de enfermedades y en el bienestar general. Recuerda que pequeños cambios en tu rutina diaria pueden tener un gran impacto en tu salud.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Higiene y Salud</p>
+    </footer>
+</body>
+</html>

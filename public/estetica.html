@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estética y Salud</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background: linear-gradient(135deg, #6b48ff, #48a9ff);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #6b48ff;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #48a9ff;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 2rem;
+            width: 70%;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        #quiz {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(135deg, #6b48ff, #48a9ff);
+            transition: width 0.3s ease;
+        }
+
+        .timer {
+            font-size: 1.2rem;
+            color: #ff0000;
+            margin-bottom: 1rem;
+        }
+
+        #rostroForm {
+            margin-top: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        #recomendaciones {
+            margin-top: 1rem;
+            font-weight: bold;
+        }
+
+        #cuidadoPiel {
+            margin-top: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Estética y Salud</h1>
+        <p>Descubre cómo la belleza exterior refleja tu bienestar interior</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>La Conexión entre Estética y Salud</h2>
+            <p>La estética no solo se trata de la apariencia externa, sino que está profundamente relacionada con nuestro bienestar general. Un cuerpo saludable naturalmente irradia belleza.</p>
+            <p>La estética también influye en el entorno que nos rodea. Un espacio bien diseñado y estéticamente agradable puede mejorar nuestro estado de ánimo y productividad.</p>
+            <button onclick="mostrarInformacion()">Leer más</button>
+        </section>
+
+        <div class="grid">
+            <div class="card" onclick="mostrarDetalle('nutricion')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKLeVEorRCB55xRluFIJVx4oD6ExtYDv65Ag&s" alt="Nutrición">
+                <h3>Nutrición y Belleza</h3>
+                <p>Alimentos que mejoran tu piel y salud</p>
+            </div>
+            <div class="card" onclick="mostrarDetalle('ejercicio')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkZikuU4JQ0tozrmH3eD0SP3KXkC03BGAJwQ&s" alt="Ejercicio">
+                <h3>Ejercicio Físico</h3>
+                <p>Mantén tu cuerpo en forma y saludable</p>
+            </div>
+            <div class="card" onclick="mostrarDetalle('descanso')">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNENlBjtGF7TKQCAFtAB6aG8mJnoiK4t7Lug&s" alt="Descanso">
+                <h3>Descanso y Recuperación</h3>
+                <p>La importancia del sueño en tu belleza</p>
+            </div>
+        </div>
+
+        <div id="quiz">
+            <h2>Test de Conocimiento</h2>
+            <div class="timer" id="timer">Tiempo restante: 30 segundos</div>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <div id="pregunta"></div>
+            <button onclick="verificarRespuesta()">Siguiente</button>
+            <button onclick="verRespuestas()">Ver respuestas correctas</button>
+        </div>
+
+        <div id="rostroForm">
+            <h2>¿Cuál es tu tipo de rostro?</h2>
+            <select id="tipoRostro" name="tipoRostro">
+                <option value="ovalado">Ovalado</option>
+                <option value="cuadrado">Cuadrado</option>
+                <option value="redondo">Redondo</option>
+                <option value="corazon">Corazón</option>
+                <option value="alargado">Alargado</option>
+            </select>
+            <button onclick="obtenerRecomendaciones()">Obtener Recomendaciones</button>
+            <div id="recomendaciones"></div>
+        </div>
+
+        <div id="cuidadoPiel">
+            <h2>Cuidado de la Piel</h2>
+            <p>El cuidado de la piel es esencial para mantener su salud y apariencia. Aquí hay algunos consejos:</p>
+            <ul>
+                <li>Hidrata tu piel diariamente con cremas adecuadas a tu tipo de piel.</li>
+                <li>Usa protector solar para protegerte de los daños del sol.</li>
+                <li>Exfolia tu piel una vez a la semana para eliminar células muertas.</li>
+                <li>Consume alimentos ricos en antioxidantes, como frutas y verduras.</li>
+                <li>Bebe suficiente agua para mantener tu piel hidratada desde adentro.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="cerrarModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const preguntas = [
+            {
+                pregunta: "¿Cuántos vasos de agua se recomienda beber al día?",
+                respuesta: "8",
+                tipo: "input"
+            },
+            {
+                pregunta: "¿La estética afecta la autoestima?",
+                respuesta: true,
+                tipo: "boolean"
+            },
+            {
+                pregunta: "¿Cuántas horas de sueño se recomiendan para una buena salud?",
+                respuesta: "8",
+                tipo: "input"
+            },
+            {
+                pregunta: "¿El ejercicio regular mejora la salud de la piel?",
+                respuesta: true,
+                tipo: "boolean"
+            }
+        ];
+
+        let preguntaActual = 0;
+        let puntuacion = 0;
+        let timer;
+        let tiempoRestante = 30;
+
+        function iniciarTemporizador() {
+            timer = setInterval(() => {
+                tiempoRestante--;
+                document.getElementById('timer').innerText = `Tiempo restante: ${tiempoRestante} segundos`;
+                if (tiempoRestante <= 0) {
+                    clearInterval(timer);
+                    mostrarResultado();
+                }
+            }, 1000);
+        }
+
+        function mostrarPregunta() {
+            const pregunta = preguntas[preguntaActual];
+            let html = `<h3>${pregunta.pregunta}</h3>`;
+            
+            if (pregunta.tipo === "boolean") {
+                html += `
+                    <button onclick="responder(true)">Verdadero</button>
+                    <button onclick="responder(false)">Falso</button>
+ `;
+            } else {
+                html += `<input type="number" id="respuesta">`;
+            }
+            
+            document.getElementById('pregunta').innerHTML = html;
+            actualizarProgreso();
+        }
+
+        function verificarRespuesta() {
+            const pregunta = preguntas[preguntaActual];
+            let respuestaUsuario;
+
+            if (pregunta.tipo === "input") {
+                respuestaUsuario = document.getElementById('respuesta').value;
+            }
+
+            if (respuestaUsuario == pregunta.respuesta) {
+                puntuacion++;
+            }
+
+            preguntaActual++;
+            
+            if (preguntaActual < preguntas.length) {
+                mostrarPregunta();
+            } else {
+                mostrarResultado();
+            }
+        }
+
+        function responder(respuesta) {
+            if (respuesta === preguntas[preguntaActual].respuesta) {
+                puntuacion++;
+            }
+            preguntaActual++;
+            
+            if (preguntaActual < preguntas.length) {
+                mostrarPregunta();
+            } else {
+                mostrarResultado();
+            }
+        }
+
+        function actualizarProgreso() {
+            const progreso = (preguntaActual / preguntas.length) * 100;
+            document.getElementById('progressBar').style.width = `${progreso}%`;
+        }
+
+        function mostrarResultado() {
+            clearInterval(timer);
+            const porcentaje = (puntuacion / preguntas.length) * 100;
+            document.getElementById('pregunta').innerHTML = `
+                <h3>¡Test completado!</h3>
+                <p>Tu puntuación: ${porcentaje}%</p>
+                <button onclick="reiniciarTest()">Intentar de nuevo</button>
+            `;
+        }
+
+        function reiniciarTest() {
+            preguntaActual = 0;
+            puntuacion = 0;
+            tiempoRestante = 30;
+            document.getElementById('timer').innerText = `Tiempo restante: ${tiempoRestante} segundos`;
+            iniciarTemporizador();
+            mostrarPregunta();
+        }
+
+        function verRespuestas() {
+            let respuestasHtml = '<h3>Respuestas Correctas:</h3><ul>';
+            preguntas.forEach((pregunta, index) => {
+                respuestasHtml += `<li>${index + 1}. ${pregunta.pregunta} - Respuesta: ${pregunta.respuesta}</li>`;
+            });
+            respuestasHtml += '</ul>';
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modalContent').innerHTML = respuestasHtml;
+        }
+
+        function mostrarInformacion() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modalContent').innerHTML = `
+                <h2>La Importancia de la Estética y la Salud</h2>
+                <p>La relación entre estética y salud es bidireccional: cuando nos sentimos saludables, nos vemos mejor, y cuando nos vemos mejor, tendemos a cuidar más nuestra salud. Algunos puntos clave:</p>
+                <ul>
+                    <li>Una dieta balanceada mejora la apariencia de la piel</li>
+                    <li>El ejercicio regular tonifica el cuerpo y mejora la postura</li>
+                    <li>El descanso adecuado reduce signos de envejecimiento</li>
+                    <li>La hidratación es fundamental para una piel saludable</li>
+                </ul>
+            `;
+        }
+
+        function mostrarDetalle(tema) {
+            document.getElementById('modal').style.display = 'block';
+            let contenido = '';
+            
+            switch(tema) {
+                case 'nutricion':
+                    contenido = `
+                        <h2>Nutrición y Belleza</h2>
+                        <p>Una alimentación equilibrada es fundamental para mantener una piel saludable y un cuerpo en forma. Los antioxidantes, vitaminas y minerales son especialmente importantes.</p>
+                        <p>Tu piel necesita nutrientes esenciales como vitaminas, minerales y antioxidantes para mantenerse saludable y radiante. Llevar una dieta equilibrada que incluya abundantes frutas, verduras, cereales integrales y proteínas magras puede proporcionar a tu piel la nutrición que necesita para lucir y sentirse lo mejor posible.</p>
+                    `;
+                    break;
+                case 'ejercicio':
+                    contenido = `
+                        <h2>Ejercicio Físico</h2>
+                        <p>El ejercicio regular no solo mejora tu figura, sino que también aumenta la circulación sanguínea, lo que beneficia la salud de tu piel y tu bienestar general.</p>
+                        <p>La alimentación y el ejercicio son factores claves para mantener una buena salud. Ambos tienen una relación estrecha, ya que, al realizar ejercicio físico, gastamos energía y aumenta la demanda de nuestro cuerpo por nutrientes.</p>
+                    `;
+                    break;
+                case 'descanso':
+                    contenido = `
+                        <h2>Descanso y Recuperación</h2>
+                        <p>Durante el sueño, tu cuerpo se repara y regenera. Un buen descanso es fundamental para mantener una apariencia saludable y radiante.</p>
+                        <p>Mientras dormimos, la piel se recupera y se renueva, lo que contribuye a lucir una apariencia más juvenil y saludable, pero también existe una mayor producción de colágeno, una proteína fundamental para la elasticidad y firmeza de la piel.</p>
+                    `;
+                    break;
+            }
+            
+            document.getElementById('modalContent').innerHTML = contenido;
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function obtenerRecomendaciones() {
+            const tipoRostro = document.getElementById('tipoRostro').value;
+            let recomendaciones = '';
+            
+            switch(tipoRostro) {
+                case 'ovalado':
+                    recomendaciones = 'Cortes en capas, flequillos suaves.';
+                    break;
+                case 'cuadrado':
+                    recomendaciones = 'Cortes con textura, estilos asimétricos.';
+                    break;
+                case 'redondo':
+                    recomendaciones = 'Cortes largos, capas que alarguen el rostro.';
+                    break;
+            }}
+       
+</script>
+</body>
+</html>

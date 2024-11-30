@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="repuesto.css">
+    <title>Página Principal</title>
+</head>
+<body>
+    <h1>Bienvenido, <span id="nombre-usuario"></span></h1>
+    <nav>
+        <table>
+            <tr>
+                <td><a href="deporte.html"><button>Deporte</button></a></td>
+                <td><a href="estetica.html"><button>Estetica</button></a></td>
+                <td><a href="higiene.html"><button>Higiene</button></a></td>
+                <td><a href="limpieza.html"><button>Limpieza social</button></a></td>
+            </tr>
+        </table>
+
+        <p>¿Quieres calcular tu IMC?</p>
+       <!-- Botón para mostrar el formulario y la calculadora -->
+<button id="showCalculatorBtn">Calcular IMC</button>
+
+<!-- Contenedor del formulario, inicialmente oculto -->
+<div class="container" id="calculatorContainer" style="display: none;">
+    
+    <form id="imcForm">
+        <label for="weight">Peso (kg):</label>
+        <input type="number" id="weight" required>
+
+        <label for="height">Altura (m):</label>
+        <input type="number" step="0.01" id="height" required>
+
+        <button type="button" id="calculateBtn">Calcular IMC</button>
+    </form>
+
+    <div id="result" class="result" style="display:none;">
+        <h3>Resultado:</h3>
+        <p><strong>IMC:</strong> <span id="imcValue"></span></p>
+        <p><strong>Estado:</strong> <span id="status"></span></p>
+    </div>
+</div>
+
+        
+
+    </nav>
+
+    <script src="repuesto.js"></script>
+</body>
+</html>
