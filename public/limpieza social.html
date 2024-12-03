@@ -38,7 +38,7 @@ body {
     margin: 0;
     padding: 0;
     background-image: url(../../../../Downloads/limpieza\ social.jpg);
-    background-repeat: no-repeat;
+    background-repeat:repeat;
     background-size: cover;
     color: #333;
 }
@@ -61,11 +61,77 @@ h1 {
     text-align: center;
 }
 
+footer{
+            background-color: #080a0979;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-content div {
+            margin: 10px;
+        }
+        
+        .footer-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .footer-content a {
+            color: #93dba3;
+            text-decoration: none;
+        }
+        
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #7ea08386;
+            padding-top: 10px;
+        }
+          /* Sección de contenido */
+          .content-section {
+            display: none; /* Inicialmente oculta */
+            margin-top: 20px;
+        }
+        /* Elimina el subrayado del enlace dentro de la celda */
+
+
+/* Estilo para el botón */
+button {
+    background-color: #4caf91c2; /* Color de fondo verde */
+    color: rgb(46, 45, 45);              /* Texto blanco */
+    border: none;              /* Sin borde */
+    padding: 12px 25px;        /* Espaciado interno */
+    font-size: 16px;           /* Tamaño de la fuente */
+    cursor: pointer;          /* Cambia el cursor a mano */
+    border-radius: 8px;        /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+    width: 100%;               /* Hace que el botón ocupe todo el ancho disponible */
+    max-width: 250px;          /* Define un ancho máximo */
+}
+
+/* Efecto hover: cambia el color de fondo cuando el ratón pasa sobre el botón */
+button:hover {
+    background-color: #458ba0; /* Cambia a un verde más oscuro */
+}
+
+/* Efecto activo: cuando el botón es presionado */
+button:active {
+    background-color: #38777c; /* Aún más oscuro cuando se hace clic */
+    transform: translateY(2px); /* Simula que el botón se presiona */
+}
 
 
 
-
-        </style>
+     </style>
     </head>
     <body>
         <header>
@@ -79,7 +145,80 @@ h1 {
                 Pero también tiene sentido en el contexto de <strong>Glow Up</strong>: significa limpiar tu ambiente, es decir, tu círculo social, como amistades, pareja, incluso hasta familiares.
             </p>
 
+            Para entenderlo mejor, puedes hacer clic en los botones de abajo para obtener más información sobre los dos enfoques de la limpieza social.
+        </p>
+<br><br>
+        <!-- Botones para mostrar información -->
+        <div style="text-align:center;">
+            <button class="boton" onclick="mostrarInfo('limpieza-social')">Limpieza Social</button>
+            <button class="boton" onclick="mostrarInfo('limpieza-higiene')">Limpieza Social (Higiene)</button>
+        </div>
 
-        </main>
+        <!-- Sección de Limpieza Social -->
+        <div id="limpieza-social" class="content-section">
+            <h2>Limpieza Social</h2>
+            <p>
+                La limpieza social implica el proceso de limpiar tu círculo social. Esto significa alejarte de relaciones que te afectan negativamente, para rodearte de personas que te sumen a tu vida. Esta limpieza emocional es fundamental para lograr bienestar y éxito en nuestras relaciones.
+            </p>
+        </div>
+
+        <!-- Sección de Limpieza Social (Higiene) -->
+        <div id="limpieza-higiene" class="content-section">
+            <h2>Limpieza Social (Higiene)</h2>
+            <p>
+                La higiene social se refiere a mantener un entorno limpio y saludable en la sociedad. Esto incluye desde el manejo adecuado de la basura hasta la creación de normas para vivir de manera saludable con los demás. Practicar la higiene social es esencial para el bienestar colectivo.
+            </p>
+        </div>
+<br><br>
+        <td><a href="formulario.html"><button>Formulario</button></a></td>
+
+    </main>
+        <section id="footer"><footer class="footer">
+            <div class="footer-content">
+                <div class="contact">
+                    <h3>Contacto</h3>
+                    Teléfono: 8132619143
+                    Email: delzocorromerry@gmail.com
+                </div>
+                <div class="social-media">
+                    <h3>Síguenos</h3>
+                    <a href="#" >Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="useful-links">
+                    <h3>Enlaces útiles</h3>
+                    <a href="#">Inicio</a>
+                    <a href="#">Sobre nosotros</a>
+                    <a href="#">Servicios</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2024 Bienestar. Todos los derechos reservados.
+                <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a>
+            </div>
+        </footer>
+    
+        
+        </section>
+
+        <script>
+            // Función para mostrar la sección correspondiente según el botón presionado
+            function mostrarInfo(seccion) {
+                // Ocultar todas las secciones
+                var secciones = document.querySelectorAll('.content-section');
+                secciones.forEach(function(seccion) {
+                    seccion.style.display = 'none';
+                });
+    
+                // Mostrar la sección seleccionada
+                var seccionMostrar = document.getElementById(seccion);
+                if (seccionMostrar) {
+                    seccionMostrar.style.display = 'block';
+                }
+            }
+        </script>
+       
     </body>
     </html>
