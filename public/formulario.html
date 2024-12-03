@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Madurez para el Éxito</title>
+    <style>
+        body {
+            background-image: url(../../../../Downloads/limpieza\ social.jpg);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #4caf9671;
+            color: rgba(255, 255, 255, 0.534);
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.534);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-size: 16px;
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+            background: #e8e8e8;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Evaluación de Madurez para el Éxito</h1>
+    </header>
+
+    <main>
+        <form id="formularioEvaluacion">
+            <!-- Limpieza Social -->
+            <div class="form-section">
+                <h2>Limpieza Social</h2>
+                <p>Evalúa tu disposición para alejarte de relaciones tóxicas en busca de tu bienestar.</p>
+
+                <label>¿Estás dispuesto(a) a cortar relaciones que te afectan negativamente?</label>
+                <input type="radio" name="limpieza-social" value="si"> Sí
+                <input type="radio" name="limpieza-social" value="no"> No
+
+                <label>¿Consideras que tus amigos/familia te ayudan a mejorar como persona?</label>
+                <input type="radio" name="relaciones-positivas" value="si"> Sí
+                <input type="radio" name="relaciones-positivas" value="no"> No
+            </div>
+
+            <!-- Limpieza Social (Higiene) -->
+            <div class="form-section">
+                <h2>Limpieza Social (Higiene)</h2>
+                <p>Evalúa tu responsabilidad y cuidado por el bienestar de tu entorno y tu higiene personal.</p>
+
+                <label>¿Eres constante en mantener tu entorno limpio y organizado?</label>
+                <input type="radio" name="entorno-limpio" value="si"> Sí
+                <input type="radio" name="entorno-limpio" value="no"> No
+
+                <label>¿Te encargas de tu higiene personal sin que te lo recuerden?</label>
+                <input type="radio" name="higiene-personal" value="si"> Sí
+                <input type="radio" name="higiene-personal" value="no"> No
+            </div>
+
+            <button type="button" onclick="evaluarMadurez()">Ver Resultados</button>
+        </form>
+
+        <div id="resultado" class="result" style="display:none;"></div>
+    </main>
+
+    <script>
+        function evaluarMadurez() {
+            // Obtener respuestas del formulario
+            const limpiezaSocial = document.querySelector('input[name="limpieza-social"]:checked');
+            const relacionesPositivas = document.querySelector('input[name="relaciones-positivas"]:checked');
+            const entornoLimpio = document.querySelector('input[name="entorno-limpio"]:checked');
+            const higienePersonal = document.querySelector('input[name="higiene-personal"]:checked');
+
+            // Validación de que se haya seleccionado una opción en cada pregunta
+            if (!limpiezaSocial || !relacionesPositivas || !entornoLimpio || !higienePersonal) {
+                alert("Por favor, responde todas las preguntas.");
+                return;
+            }
+
+            // Calcular puntuación de madurez
+            let madurez = 0;
+
+            if (limpiezaSocial.value === 'si') madurez += 1;
+            if (relacionesPositivas.value === 'si') madurez += 1;
+            if (entornoLimpio.value === 'si') madurez += 1;
+            if (higienePersonal.value === 'si') madurez += 1;
+
+            // Mostrar resultados
+            const resultado = document.getElementById('resultado');
+            resultado.style.display = 'block';
+
+            if (madurez === 4) {
+                resultado.innerHTML = "¡Excelente! Estás en el camino correcto hacia la madurez personal. Estás listo para tomar decisiones por ti mismo y buscar el éxito sin importar los obstáculos.";
+            } else if (madurez === 3) {
+                resultado.innerHTML = "Muy bien. Tienes una gran madurez, pero aún hay aspectos en los que podrías trabajar para mejorar tu independencia y responsabilidad.";
+            } else if (madurez === 2) {
+                resultado.innerHTML = "Tienes algunas áreas de oportunidad en cuanto a la responsabilidad y la independencia. Reflexiona sobre cómo puedes mejorar tu entorno y relaciones.";
+            } else {
+                resultado.innerHTML = "Parece que hay varias áreas en las que podrías trabajar para lograr una mayor madurez y responsabilidad. El éxito comienza con el esfuerzo por mejorar constantemente.";
+            }
+        }
+    </script>
+
+</body>
+</html>
