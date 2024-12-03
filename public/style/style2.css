@@ -1,13 +1,11 @@
 body{
-    background-image: url('img/registro.png');
+    background-image: url(../../../../../Downloads/registro.png);
 }
-body{    
-        background-image: url('img/registro.png');
-        background-size: cover;
-        background-repeat: no-repeat; /* Evita que se repita */
-        background-position: center; /* Centra la imagen */
-    }
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
     
+}    
 h1{
     font-family: Arial;
     text-align: center;
@@ -216,5 +214,6 @@ h1{
             border-top: 1px solid #7ea08386;
             padding-top: 10px;
         }
+        
         
         
