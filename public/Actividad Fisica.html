@@ -1,85 +1,397 @@
-<!DOCTYPE html>
-<html>
-    <head>
-       <style>
-        p{
-    text-align: center;
-}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Deporte</title>
+<style>
+    body {
+        background-image: url(img/actividadfisica.jpg);
+        background-repeat:repeat;
+        background-size:contain;
 
-button{
-    background-color: rgba(255, 255, 255, 0.719);
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+    }
     
-}
-
-/* Estilos para el botón */
-.boton {
-    background-color: #4CAF50; /* Color de fondo verde */
-    color: rgb(255, 255, 255);              /* Texto blanco */
-    border: none;              /* Sin borde */
-    padding: 15px 32px;        /* Espaciado interno */
-    text-align: center;        /* Centrado del texto */
-    text-decoration: none;     /* Sin subrayado */
-    display: inline-block;     /* Para que se ajuste al contenido */
-    font-size: 16px;           /* Tamaño de la fuente */
-    margin: 4px 2px;           /* Márgenes */
-    cursor: pointer;          /* Cambia el cursor a mano */
-    border-radius: 8px;        /* Bordes redondeados */
-    transition: background-color 0.3s ease; /* Transición suave */
-}
-
-/* Efecto hover para cuando el usuario pasa el ratón por encima */
-.boton:hover {
-    background-color: #45a049; /* Cambio de color a un verde más oscuro */
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-image: url(../../../../Downloads/limpieza\ social.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #333;
-}
-header {
-    background: #fdfffe9c;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-main {
+    header {
+        background: #2c3e509a;
+        color: rgb(250, 250, 250);
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    header .logo h1 {
+        font-size: 2.5rem;
+        margin: 0;
+    }
+    
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 10px;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin: 0 15px;
+    }
+    
+    nav a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 1.1rem;
+    }
+    
+    nav a:hover {
+        text-decoration: underline;
+    }
+    
+    main {
+        padding: 40px 20px;
+    }
+    
+    h2 {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #333;
+    }
+    
+    .rutina {
+        background: #ffffff9c;
+        padding: 20px;
+        margin: 15px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    
+    .rutina:hover {
+        background-color: #ecf0f196;
+        transform: scale(1.05);
+    }
+    
+    .rutina h3 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+    }
+    
+    .rutina p {
+        font-size: 1rem;
+        color: #7f8c8d;
+    }
+    
+    .detalles {
+        margin-top: 30px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: opacity 0.3s ease;
+    }
+    
+    form {
+        background-color: #cac5c5b7;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    
+    button {
+        background-color: #2c3e50;
+        color: rgba(255, 255, 255, 0.637);
+        padding: 12px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #34495e;
+    }
+    
+    rutina {
+        background-color: #ffffff81;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        text-align: center;
+        overflow: hidden; /* Asegura que el contenido no sobresalga */
+    }
+    
+    .rutina:hover {
+        background-color: #ecf0f180;
+        transform: scale(1.05);
+    }
+    
+    .imagen-container {
+        width: auto;
+        height: 100px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    
+    .rutina img {
+        width: auto;
+        height: 100%;
+        object-fit: cover; /* Hace que la imagen cubra el espacio del contenedor sin deformarse */
+        border-radius: 10px;
+    }
+    
+    .rutina h3 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    
+    .rutina p {
+        font-size: 1rem;
+        color: #202324;
+        margin: 0;
+    }
+    .rutina {
+        background-color: #fffefe9d;
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 15px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);  /* Sombra sutil alrededor */
+        cursor: pointer;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        overflow: hidden;  /* Asegura que la imagen no sobresalga */
+    }
+    
+    /* Efecto de hover */
+    .rutina:hover {
+        background-color: #ecf0f179;  /* Color de fondo más suave al hacer hover */
+        transform: scale(1.05);  /* Le da un efecto de crecimiento al pasar el mouse */
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);  /* Sombra más pronunciada */
+    }
+    
+    /* Estilo para el contenedor de la imagen */
+    .image-container {
+        width: auto;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+    
+    /* Ajuste de la imagen dentro del contenedor */
+    .rutina img {
+        width: auto;
+        height: 100%;
+        object-fit: cover;  /* Hace que la imagen cubra el contenedor sin distorsionarse */
+        border-radius: 10px;
+    }
+    
+    /* Estilo para el título de la rutina */
+    .rutina h3 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 10px;
+    }
+    
+    /* Estilo para la descripción */
+    .rutina p {
+        font-size: 1rem;
+        color: #161818;
+        margin: 0;
+    }
+    
+footer{
+    background-color: #080a0979;
+    color: #ffffff;
     padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-h1 {
-    color: #84ccb1;
     text-align: center;
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-content div {
+    margin: 10px;
+}
+
+.footer-content h3 {
+    margin-bottom: 10px;
+}
+
+.footer-content a {
+    color: #93dba3;
+    text-decoration: none;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    border-top: 1px solid #7ea08386;
+    padding-top: 10px;
+}
 
 
 
+</style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Deporte Total</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#rutinas">Rutinas</a></li>
+                <li><a href="#footer">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="rutinas">
+            <h2>Elige tu Rutina de Ejercicio</h2>
 
-        </style>
-    </head>
-    <body>
-        <header>
-            <h1>¿Limpieza Social?</h1>
-        </header>
-        <main>
-            <p>
-                Limpieza social puede significar muchas cosas. Tal vez, por el tema, se puede pensar que se refiere a limpiar las calles, separar la basura, etc., y sí.
-            </p>
-            <p>
-                Pero también tiene sentido en el contexto de <strong>Glow Up</strong>: significa limpiar tu ambiente, es decir, tu círculo social, como amistades, pareja, incluso hasta familiares.
-            </p>
+            <!-- Rutina de Fuerza -->
+            <div class="rutina" onclick="mostrarDetalles('rutina1')">
+                <div class="imagen-container">
+                    <img src="img/fuerza.jpg" alt="Imagen de Fuerza">
+                </div>
+                <h3>Fuerza</h3>
+                <p>Ejercicios para aumentar la masa muscular.</p>
+            </div>
+            <div id="detalles-rutina1" class="detalles"></div>
 
+            <!-- Rutina de Cardio -->
+            <div class="rutina" onclick="mostrarDetalles('rutina2')">
+                <div class="image-container">
+                    <img src="img/cardio.jpg" alt="Imagen de Cardio">
+                </div>
+                <h3>Cardio</h3>
+                <p>Ejercicios para mejorar la resistencia cardiovascular.</p>
+            </div>
+            <div id="detalles-rutina2" class="detalles"></div>
 
-        </main>
-    </body>
-    </html>
+            <!-- Rutina de Flexibilidad -->
+            <div class="rutina" onclick="mostrarDetalles('rutina3')">
+                <div class="image-container">
+                    <img src="img/yoga.jpg" alt="Imagen de Flexibilidad">
+                </div>
+                <h3>Flexibilidad</h3>
+                <p>Ejercicios para mejorar la flexibilidad y movilidad.</p>
+            </div>
+            <div id="detalles-rutina3" class="detalles"></div>
+
+        </section>
+    </main>
+<section id="footer"></section>
+    <footer>
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="contact">
+                    <h3>Contacto</h3>
+                    Teléfono: 8132619143
+                    Email: delzocorromerry@gmail.com
+                </div>
+                <div class="social-media">
+                    <h3>Síguenos</h3>
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="useful-links">
+                    <h3>Enlaces útiles</h3>
+                    <a href="#">Inicio</a>
+                    <a href="#">Sobre nosotros</a>
+                    <a href="#">Servicios</a>
+                    <a href="#">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2024 Bienestar. Todos los derechos reservados.
+                <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a>
+            </div>
+        </footer>
+
+    </section>
+
+    <script>
+        function mostrarDetalles(rutina) {
+    let contenido = '';
+    
+    // Creamos el contenido de acuerdo con la rutina seleccionada
+    switch (rutina) {
+        case 'rutina1':
+            contenido = `
+                <h4>Rutina de Fuerza</h4>
+                <p>Incluye ejercicios como press de banca, sentadillas y peso muerto. La rutina está enfocada en el aumento de la masa muscular y la mejora de la fuerza en los principales grupos musculares.</p>
+                <ul>
+                    <li>Press de banca</li>
+                    <li>Sentadillas</li>
+                    <li>Peso muerto</li>
+                    <li>Dominadas</li>
+                </ul>
+            `;
+            break;
+        case 'rutina2':
+            contenido = `
+                <h4>Rutina de Cardio</h4>
+                <p>Incluye actividades como correr, nadar y andar en bicicleta. Perfecto para mejorar la resistencia cardiovascular y quemar calorías.</p>
+                <ul>
+                    <li>Correr</li>
+                    <li>Nadar</li>
+                    <li>Andar en bicicleta</li>
+                </ul>
+            `;
+            break;
+        case 'rutina3':
+            contenido = `
+                <h4>Rutina de Flexibilidad</h4>
+                <p>Enfocada en la mejora de la movilidad y la flexibilidad general mediante estiramientos y yoga.</p>
+                <ul>
+                    <li>Estiramientos dinámicos</li>
+                    <li>Yoga</li>
+                    <li>Movilidad articular</li>
+                </ul>
+            `;
+            break;
+        default:
+            contenido = '<p>Selecciona una rutina para ver los detalles.</p>';
+    }
+
+    // Actualizamos el contenedor adecuado con el contenido
+    const detalles = document.getElementById('detalles-' + rutina);
+    detalles.innerHTML = contenido;
+}
+    </script>
+</body>
+</html>
