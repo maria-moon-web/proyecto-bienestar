@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Estética y Salud</title>
     <style>
+        body{
+            background-image: url(img/estetica.jpg);
+            background-size: contain;
+            background-repeat: repeat;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -17,7 +22,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, #6b48ff, #48a9ff);
+            background: linear-gradient(135deg, #6948ff63, #48aaff5e);
             color: white;
             text-align: center;
             padding: 2rem;
@@ -31,7 +36,7 @@
         }
 
         .section {
-            background: white;
+            background: rgba(255, 255, 255, 0.678);
             border-radius: 10px;
             padding: 2rem;
             margin-bottom: 2rem;
@@ -51,7 +56,7 @@
         }
 
         .card {
-            background: white;
+            background: rgba(255, 255, 255, 0.705);
             padding: 1.5rem;
             border-radius: 8px;
             text-align: center;
@@ -68,7 +73,7 @@
 
         button {
             background-color: #6b48ff;
-            color: white;
+            color: rgba(255, 255, 255, 0.795);
             border: none;
             padding: 0.8rem 1.5rem;
             border-radius: 5px;
@@ -91,7 +96,7 @@
         }
 
         .modal-content {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.541);
             margin: 15% auto;
             padding: 2rem;
             width: 70%;
@@ -108,7 +113,7 @@
         }
 
         #quiz {
-            background: white;
+            background: rgba(255, 255, 255, 0.61);
             padding: 2rem;
             border-radius: 10px;
             margin-top: 2rem;
@@ -117,7 +122,7 @@
         .progress-bar {
             width: 100%;
             height: 20px;
-            background-color: #f0f0f0;
+            background-color: #f0f0f07e;
             border-radius: 10px;
             margin: 1rem 0;
             overflow: hidden;
@@ -136,12 +141,7 @@
             margin-bottom: 1rem;
         }
 
-        #rostroForm {
-            margin-top: 2rem;
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-        }
+        
 
         #recomendaciones {
             margin-top: 1rem;
@@ -150,10 +150,47 @@
 
         #cuidadoPiel {
             margin-top: 2rem;
-            background: white;
+            background: rgba(255, 255, 255, 0.336);
             padding: 2rem;
             border-radius: 10px;
         }
+        footer{
+            background-color: #080a0979;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-content div {
+            margin: 10px;
+        }
+        
+        .footer-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .footer-content a {
+            color: #93dba3;
+            text-decoration: none;
+        }
+        
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #7ea08386;
+            padding-top: 10px;
+        }
+        
+        
     </style>
 </head>
 <body>
@@ -199,18 +236,6 @@
             <button onclick="verRespuestas()">Ver respuestas correctas</button>
         </div>
 
-        <div id="rostroForm">
-            <h2>¿Cuál es tu tipo de rostro?</h2>
-            <select id="tipoRostro" name="tipoRostro">
-                <option value="ovalado">Ovalado</option>
-                <option value="cuadrado">Cuadrado</option>
-                <option value="redondo">Redondo</option>
-                <option value="corazon">Corazón</option>
-                <option value="alargado">Alargado</option>
-            </select>
-            <button onclick="obtenerRecomendaciones()">Obtener Recomendaciones</button>
-            <div id="recomendaciones"></div>
-        </div>
 
         <div id="cuidadoPiel">
             <h2>Cuidado de la Piel</h2>
@@ -232,6 +257,36 @@
         </div>
     </div>
 
+    <section id="footer"><footer class="footer">
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Contacto</h3>
+                Teléfono: 8132619143
+                Email: delzocorromerry@gmail.com
+            </div>
+            <div class="social-media">
+                <h3>Síguenos</h3>
+                <a href="#" >Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="useful-links">
+                <h3>Enlaces útiles</h3>
+                <a href="#">Inicio</a>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Bienestar. Todos los derechos reservados.
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a>
+        </div>
+    </footer>
+
+    
+    </section>
+   
     <script>
         const preguntas = [
             {
