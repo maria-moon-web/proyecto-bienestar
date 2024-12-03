@@ -6,16 +6,22 @@
     <title>Higiene y Salud</title>
     <style>
         body {
+            background-image:url(img/higiene.jpg);
+            background-size:contain;
+            background-repeat: repeat-y;
+        }
+        
+body{
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4; /* Color de fondo */
+     
         }
 
         header {
-            background: #4CAF50;
-            color: white;
+            background: #4caf4f63;
+            color: rgb(255, 255, 255);
             padding: 10px 0;
             text-align: center;
             margin-bottom: 20px;
@@ -29,7 +35,7 @@
         }
 
         section {
-            background: white;
+            background: rgba(255, 255, 255, 0.747);
             border: 1px solid #ccc;
             border-radius: 8px; /* Bordes redondeados */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
@@ -39,67 +45,17 @@
             max-width: 600px; /* Ancho máximo */
         }
 
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #333;
-            color: white;
-            margin-top: 20px;
-        }
-
+    
         h2 {
             color: #4CAF50;
         }
 
-        button {
-            margin-top: 10px;
-            padding: 10px 15px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049; /* Color de fondo al pasar el mouse */
-        }
 
         .hidden {
             display: none;
         }
 
-        #themeToggle {
-            margin: 20px;
-        }
-
-        .carousel {
-            display: flex;
-            overflow: hidden;
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto;
-        }
-
-        .carousel img {
-            width: 100%;
-            border-radius: 8px;
-        }
-
-        .dark-theme {
-            background-color: #333;
-            color: white;
-        }
-
-        .dark-theme section {
-            background: #444;
-            border: 1px solid #555;
-        }
-
-        .dark-theme footer {
-            background: #222;
-        }
-
+        
         .faq {
             margin-top: 20px;
         }
@@ -108,7 +64,7 @@
             cursor: pointer;
             margin: 5px 0;
             padding: 10px;
-            border: 1px solid #ccc;
+            border: 1px solid #ffffff;
             border-radius: 5px;
         }
 
@@ -117,8 +73,45 @@
             margin-top: 5px;
             padding: 10px;
             border-left: 4px solid #4CAF50;
-            background-color: #f9f9f9;
+            background-color: #ffffff;
         }
+        footer{
+            background-color: #080a0979;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .footer-content div {
+            margin: 10px;
+        }
+        
+        .footer-content h3 {
+            margin-bottom: 10px;
+        }
+        
+        .footer-content a {
+            color: #93dba3;
+            text-decoration: none;
+        }
+        
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-bottom {
+            margin-top: 20px;
+            border-top: 1px solid #7ea08386;
+            padding-top: 10px;
+        }
+        
+        
     </style>
     <script>
         let clickCount = 0;
@@ -145,11 +138,7 @@
             console.log(`Número de visitas: ${visitas}`);
         }
 
-        function cambiarTema() {
-            const body = document.body;
-            body.classList.toggle('dark-theme');
-        }
-
+       
         function toggleFAQ(answerId) {
             const answer = document.getElementById(answerId);
             answer.style.display = answer.style.display === "block" ? "none" : "block";
@@ -161,7 +150,7 @@
 <body>
     <header>
         <h1>La Importancia de la Higiene en la Salud</h1>
-        <button id="themeToggle" onclick="cambiarTema()">Cambiar Tema</button>
+     
     </header>
     <main>
         <section id="introduccion">
@@ -229,33 +218,41 @@
                 <div id="faq2-answer" class="faq-answer">Los desinfectantes a base de alcohol son efectivos, así como las soluciones de cloro diluido.</div>
             </div>
         </section>
-        <section id="formulario-contacto">
-            <h2>Formulario de Contacto</h2>
-            <form>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" name="nombre" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" name="mensaje" required></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-        <section id="carousel">
-            <h2>Consejos de Higiene en Imágenes</h2>
-            <div class="carousel">
-                <img src="imagen1.jpg" alt="Consejo de Higiene 1">
-                <img src="imagen2.jpg" alt="Consejo de Higiene 2">
-                <img src="imagen3.jpg" alt="Consejo de Higiene 3">
-            </div>
-        </section>
+       
         <section id="conclusion">
             <h2>Conclusión</h2>
             <p>La higiene es clave para una vida saludable. Implementar buenos hábitos de higiene puede marcar la diferencia en la prevención de enfermedades y en el bienestar general. Recuerda que pequeños cambios en tu rutina diaria pueden tener un gran impacto en tu salud.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2024 Higiene y Salud</p>
+    <section id="footer"><footer class="footer">
+        <div class="footer-content">
+            <div class="contact">
+                <h3>Contacto</h3>
+                Teléfono: 8132619143
+                Email: delzocorromerry@gmail.com
+            </div>
+            <div class="social-media">
+                <h3>Síguenos</h3>
+                <a href="#" >Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+            <div class="useful-links">
+                <h3>Enlaces útiles</h3>
+                <a href="#">Inicio</a>
+                <a href="#">Sobre nosotros</a>
+                <a href="#">Servicios</a>
+                <a href="#">Contacto</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2024 Bienestar. Todos los derechos reservados.
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de servicio</a>
+        </div>
     </footer>
+
+    
+    </section>
+   
 </body>
 </html>
