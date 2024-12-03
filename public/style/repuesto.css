@@ -1,5 +1,9 @@
-body{
-    background-image: url(../../../../../Downloads/contenido.png);
+body {
+ 
+    background-image: url(../../../../../Downloads/fondo2.jpg);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
     
     text-align: center;
 }
