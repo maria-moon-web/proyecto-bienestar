@@ -1,6 +1,8 @@
 body{
-    background-image: url(../../../../../../Downloads/fondo3.jpeg);
-  
+    background-image: url('img/registro.png');
+}
+body{    
+        background-image: url('img/registro.png');
         background-size: cover;
         background-repeat: no-repeat; /* Evita que se repita */
         background-position: center; /* Centra la imagen */
@@ -176,6 +178,8 @@ h1{
                 margin: 1rem;
             }
         }
+
+       
 
         footer{
             background-color: #080a0979;
