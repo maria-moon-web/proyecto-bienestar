@@ -1,10 +1,10 @@
-
 body{
-    background-image: url(/img/diseño.png);
+    background-image: url(../../../../../Downloads/paginaprincipal.png);
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center center;
     background-size: cover;
 
+   
 
 }
 h1{
@@ -165,39 +165,40 @@ p{
 }
 
 footer{
-    background-color: #080a0979;
-    color: #ffffff;
-    padding: 20px;
-    text-align: center;
+  background-color: #080a0979;
+  color: #ffffff;
+  padding: 20px;
+  text-align: center;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .footer-content div {
-    margin: 10px;
+  margin: 10px;
 }
 
 .footer-content h3 {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .footer-content a {
-    color: #93dba3;
-    text-decoration: none;
+  color: #93dba3;
+  text-decoration: none;
 }
 
 .footer-content a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer-bottom {
-    margin-top: 20px;
-    border-top: 1px solid #7ea08386;
-    padding-top: 10px;
+  margin-top: 20px;
+  border-top: 1px solid #7ea08386;
+  padding-top: 10px;
 }
+
 
 
